@@ -35,7 +35,13 @@ describe("common", function () {
     	var target = {};
     	extend(target, source);
     	expect(target).toEqual(source);
-    	console.log(target)
-    	console.log(source)
+    });
+    
+    it('contains', function() {
+    	var node = document.getElementById('outter');
+    	var child = document.getElementById('inner3');
+    	var outter = document.getElementById('outter4');
+    	expect(contains(node, child)).toBe(true);
+    	expect(contains(node, outter)).toBe(false);
     });
 });
