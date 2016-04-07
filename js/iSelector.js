@@ -32,8 +32,39 @@ function qsa(element, selector) {
  * 复制参数
  */
 function extend(target, source) {
-  for (key in source) {
-  	if (source[key] !== undefined && source.hasOwnProperty(key)) 
-      target[key] = source[key];
-  }
+	for (key in source) {
+		if (source[key] !== undefined && source.hasOwnProperty(key))
+			target[key] = source[key];
+	}
+}
+
+/**
+ * 判断是否是子节点
+ */
+function contains(parent, node) {
+	if (document.documentElement.contains)
+		return parent !== node && parent.contains(node);
+	while (node && (node = node.parentNode)) {
+		if (node === parent)
+			return true;
+	}
+	return false;
+}
+
+/**
+ * 过滤节点
+ */
+function filter(nodes, selector) {
+	var results = [];
+	if (typeof selector == 'function') {
+		nodes.forEach(function(node, index) {
+			if (selector.call(node, index)) {
+				results.push(node);
+			}
+		});
+		return results;
+	}
+	return [].filter.call(nodes, function(node) {
+		return matches(element, selector);
+	});
 }
