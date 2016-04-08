@@ -327,7 +327,8 @@
 		 * 修改样式名
 		 * @param {String|Array} name
 		 */
-		setClass: function(name, isAdd=true) {
+		setClass: function(name, isAdd) {
+			isAdd===undefined && (isAdd=true);
 			if(isString(name)) {
 				name = name.split(/\s+/);
 			}
@@ -340,10 +341,9 @@
 			});
 		},
 		hasClass: function(name) {
-			//new RegExp('(^|\\s)' + name + '(\\s|$)')
 			var regex = new RegExp('(^|\\s)'+name+'(\\s|$)');
 			return some.call(this, function(element) {
-				this.test(element.className);
+				return this.test(element.className);
 			}, regex);
 		}
 	};
