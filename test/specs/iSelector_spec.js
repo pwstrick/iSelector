@@ -154,6 +154,6 @@ describe("common", function () {
     	S('#outter10').setClass('db004 db005', false);
     	expect(document.getElementById('outter10').className).toBe('');
     	
-    	expect(S('#inner10').setClass()).toEqual('db003 db002');
+    	expect(S('#inner10').hasClass('db003')).toBeTruthy();
     });
 });
