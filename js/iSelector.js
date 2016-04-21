@@ -62,6 +62,7 @@
 		return S.init(selector, context)
 	};
 	S.init = function(selector, context) {
+		var dom;
 		//		if (!selector) 
 		//			return new iSelector()
 		if (isString(selector)) {
