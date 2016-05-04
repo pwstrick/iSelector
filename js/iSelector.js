@@ -119,7 +119,7 @@
 	 * 复制参数
 	 */
 	S.extend = function(target, source) {
-		for (key in source) {
+		for (var key in source) {
 			if (source[key] !== undefined && source.hasOwnProperty(key))
 				target[key] = source[key];
 		}
