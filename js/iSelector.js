@@ -309,7 +309,7 @@
 			}
 			return this.each(function() {
 				if (isObject(name)) {
-					for (key in name)
+					for (var key in name)
 						this.setAttribute(key, name[key]);
 					return;
 				}
